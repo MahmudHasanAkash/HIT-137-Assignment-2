@@ -1,0 +1,29 @@
+Input: 3+5
+Tree: (+ 3 5)
+Tokens: [NUM:3] [OP:+] [NUM:5] [END]
+Result: 8
+
+Input: 4-2
+Tree: (- 4 2)
+Tokens: [NUM:4] [OP:-] [NUM:2] [END]
+Result: 2
+
+Input: 4--2
+Tree: (- 4 (neg 2))
+Tokens: [NUM:4] [OP:-] [OP:-] [NUM:2] [END]
+Result: 6
+
+Input: 2*(4-2)/3
+Tree: (/ (* 2 (- 4 2)) 3)
+Tokens: [NUM:2] [OP:*] [LPAREN:(] [NUM:4] [OP:-] [NUM:2] [RPAREN:)] [OP:/] [NUM:3] [END]
+Result: 1.3333
+
+Input: 2/0
+Tree: ERROR
+Tokens: ERROR
+Result: ERROR
+
+Input: sqrt(-2)
+Tree: ERROR
+Tokens: ERROR
+Result: ERROR
