@@ -37,11 +37,18 @@ def decrypt_char(c, shift1, shift2, original_c):
 
 
 def encrypt_text(text, shift1, shift2):
-    return ''.join(encrypt_char(c, shift1, shift2) for c in text)
-
+    result = ""
+    for c in text:
+        result += encrypt_char(c, shift1, shift2)
+    return result
 
 def decrypt_text(encrypted_text, original_text, shift1, shift2):
-    return ''.join(decrypt_char(c, shift1, shift2, orig) for c, orig in zip(encrypted_text, original_text))
+    result = ""
+    for i in range(len(encrypted_text)):
+        c = encrypted_text[i]
+        orig = original_text[i]
+        result += decrypt_char(c, shift1, shift2, orig)
+    return result
 
 
 def check_correctness(original_text, decrypted_text):
